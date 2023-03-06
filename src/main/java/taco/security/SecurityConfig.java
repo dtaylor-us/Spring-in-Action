@@ -1,14 +1,17 @@
 package taco.security;
 
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.expression.WebExpressionAuthorizationManager;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import taco.User;
 import taco.data.UserRepository;
 
@@ -38,7 +41,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/design", "/orders")
                         .access(new WebExpressionAuthorizationManager("hasRole('USER')"))
-                        .requestMatchers("/", "/**", "/h2-console/**").access(new WebExpressionAuthorizationManager("permitAll()"))
+                        .requestMatchers("/", "/**").access(new WebExpressionAuthorizationManager("permitAll()"))
                 )
 
                 .formLogin()
@@ -46,19 +49,14 @@ public class SecurityConfig {
 
                 .and()
                 .logout()
-                .logoutSuccessUrl("/")
-
-                .and()
-                .csrf()
-                .ignoringRequestMatchers("/h2-console/**")
-
-                .and()
-                .headers()
-                .frameOptions()
-                .disable();
+                .logoutSuccessUrl("/");
 
         return http.build();
     }
 
-
+    @Bean
+    WebSecurityCustomizer webSecurityCustomizer() {
+        return web -> web.ignoring()
+                .requestMatchers(new AntPathRequestMatcher("/h2-console/**"));
+    }
 }
