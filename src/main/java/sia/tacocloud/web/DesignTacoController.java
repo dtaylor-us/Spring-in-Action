@@ -15,8 +15,6 @@ import sia.tacocloud.Ingredient;
 import sia.tacocloud.Ingredient.Type;
 import sia.tacocloud.Taco;
 import sia.tacocloud.TacoOrder;
-import sia.tacocloud.TacoUDRUtils;
-import sia.tacocloud.TacoUDT;
 import sia.tacocloud.data.IngredientRepository;
 
 import java.util.stream.StreamSupport;
@@ -65,8 +63,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(TacoUDRUtils.toTacoUDT(taco));
-        log.info("Processing taco: {}", taco);
+        tacoOrder.addTaco(taco);
 
         return "redirect:/orders/current";
     }

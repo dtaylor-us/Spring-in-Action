@@ -38,7 +38,6 @@ public class OrderController {
             return "orderForm";
         }
 
-        log.info("Order submitted: {}", order);
         orderRepo.save(order);
         sessionStatus.setComplete();
 
