@@ -1,9 +1,5 @@
 spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      username: dtaylor-us
-#      password: password
-      database: tacoclouddb
-      authentication-database: admin
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+
