@@ -1,4 +1,4 @@
-//package sia.tacocloud.data;
+//package taco.data;
 //
 //import java.sql.ResultSet;
 //import java.sql.SQLException;
@@ -8,7 +8,7 @@
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.jdbc.core.JdbcTemplate;
 //import org.springframework.stereotype.Repository;
-//import sia.tacocloud.Ingredient;
+//import taco.Ingredient;
 //
 //
 //@Repository

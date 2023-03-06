@@ -1,4 +1,4 @@
-package sia.tacocloud.web;
+package taco.web;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import sia.tacocloud.Ingredient;
-import sia.tacocloud.Ingredient.Type;
-import sia.tacocloud.Taco;
-import sia.tacocloud.TacoOrder;
-import sia.tacocloud.data.IngredientRepository;
+import taco.Ingredient;
+import taco.Taco;
+import taco.TacoOrder;
+import taco.data.IngredientRepository;
 
 import java.util.stream.StreamSupport;
 
@@ -34,7 +33,7 @@ public class DesignTacoController {
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
         Iterable<Ingredient> ingredients = ingredientRepo.findAll();
-        for (Type type : Ingredient.Type.values()) {
+        for (Ingredient.Type type : Ingredient.Type.values()) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(ingredients, type));
         }
     }
@@ -68,7 +67,7 @@ public class DesignTacoController {
         return "redirect:/orders/current";
     }
 
-    private Iterable<Ingredient> filterByType(Iterable<Ingredient> ingredients, Type type) {
+    private Iterable<Ingredient> filterByType(Iterable<Ingredient> ingredients, Ingredient.Type type) {
         return StreamSupport.stream(ingredients.spliterator(), false)
                 .filter(x -> x.getType().equals(type))
                 .toList();

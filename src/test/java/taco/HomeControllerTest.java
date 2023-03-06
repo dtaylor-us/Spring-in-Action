@@ -1,9 +1,12 @@
-package sia.tacocloud;
+package taco;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import taco.data.IngredientRepository;
+import taco.data.OrderRepository;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -13,6 +16,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest()
 class HomeControllerTest {
+
+    @MockBean
+    IngredientRepository ingredientRepository;
+
+    @MockBean
+    OrderRepository orderRepository;
 
     @Autowired
     private MockMvc mockMvc;

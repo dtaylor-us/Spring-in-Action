@@ -1,4 +1,4 @@
-package sia.tacocloud.web;
+package taco.web;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,11 +21,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import sia.tacocloud.Ingredient;
-import sia.tacocloud.Ingredient.Type;
-import sia.tacocloud.Taco;
-import sia.tacocloud.data.IngredientRepository;
-import sia.tacocloud.data.OrderRepository;
+import taco.Ingredient;
+import taco.Ingredient.Type;
+import taco.Taco;
+import taco.data.IngredientRepository;
+import taco.web.DesignTacoController;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(DesignTacoController.class)

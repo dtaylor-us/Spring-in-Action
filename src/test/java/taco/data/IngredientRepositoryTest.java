@@ -1,10 +1,11 @@
-package sia.tacocloud.data;
+package taco.data;
 
 import org.apache.commons.collections4.IterableUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import sia.tacocloud.Ingredient;
+import taco.Ingredient;
+import taco.data.IngredientRepository;
 
 import java.util.Optional;
 

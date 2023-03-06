@@ -1,4 +1,4 @@
-package sia.tacocloud.web;
+package taco.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

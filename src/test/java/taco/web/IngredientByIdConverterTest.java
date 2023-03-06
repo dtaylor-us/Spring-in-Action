@@ -1,9 +1,10 @@
-package sia.tacocloud.web;
+package taco.web;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import sia.tacocloud.Ingredient;
-import sia.tacocloud.data.IngredientRepository;
+import taco.Ingredient;
+import taco.data.IngredientRepository;
+import taco.web.IngredientByIdConverter;
 
 import java.util.Optional;
 

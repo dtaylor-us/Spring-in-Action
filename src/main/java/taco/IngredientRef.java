@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package taco;
 
 import lombok.Data;
 

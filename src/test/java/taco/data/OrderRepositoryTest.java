@@ -1,11 +1,12 @@
-package sia.tacocloud.data;
+package taco.data;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import sia.tacocloud.Ingredient;
-import sia.tacocloud.Taco;
-import sia.tacocloud.TacoOrder;
+import taco.Ingredient;
+import taco.Taco;
+import taco.TacoOrder;
+import taco.data.OrderRepository;
 
 import java.util.Date;
 import java.util.List;
