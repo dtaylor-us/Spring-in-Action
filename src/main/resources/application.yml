@@ -5,4 +5,17 @@ spring:
   h2:
     console:
       enabled: true
+  data:
+    rest:
+      base-path: /data-api
+
+
+taco:
+  orders:
+    pageSize: 10
+
+logging:
+  level:
+    taco: DEBUG
+
 
